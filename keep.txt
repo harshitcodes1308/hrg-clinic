@@ -1,0 +1,9 @@
+# Local redesign keep list: patient-results presentation
+# Keep the existing section anchor, consultation anchor, brand palette, logo, and supplied imagery.
+Patient cases
+Real work deserves
+real context.
+These images were supplied by the clinic. They are presented without invented patient stories, ratings, or timelines.
+Results vary by individual. Patient consent, dates, treatment details, and final clinical approval should be confirmed before public launch.
+Clinic-provided case 01
+Clinic-provided case 02

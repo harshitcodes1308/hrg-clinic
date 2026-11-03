@@ -16,7 +16,7 @@
 - Photography: original AI-generated demo editorial imagery, pending replacement or approval before launch.
 - Identity: the clinic-supplied metallic HRG mark is used as a transparent image in the header and footer; its blue remains confined to the artwork, not the interface palette.
 - Content rhythm: text-led sections alternate with environment, patient, assessment-detail, process, and case-study compositions so imagery carries meaning rather than decoration.
-- Patient cases: clinic-supplied posters remain intact inside a restrained editorial spread, labelled as supplied material with an outcomes-and-consent disclaimer.
+- Patient cases: clinic-supplied posters are cropped to their photographic comparisons inside alternating editorial case-study panels, labelled as supplied material with an outcomes-and-consent disclaimer.
 - Footer: the consultation CTA, three-step expectation setting, brand identity, and utility links form one asymmetrical closing composition.
 - Exception: Oxfords discourages cream grounds and the selected fonts as generic defaults; both are explicit client-brief requirements here.
 - Exception: rendered neutral share may fall just below 60% because the client-supplied blue case posters and photographic skin tones are content, not added UI hues; all CSS surfaces remain within the three-colour brand system.

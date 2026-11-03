@@ -5,13 +5,17 @@ const cases = [
     src: "/images/hrg-case-study-01.png",
     alt: "Clinic-supplied hair transplant result showing an immediate post-procedure view and a later appearance",
     label: "Clinic-provided case 01",
-    note: "Transplant result supplied by HRG",
+    title: "Hair transplant result",
+    description: "Before and later-appearance imagery supplied by HRG. Treatment plan, interval, and clinical notes are pending clinic confirmation.",
+    comparison: "Before / later appearance",
   },
   {
     src: "/images/hrg-case-study-02.png",
     alt: "Clinic-supplied hair transplant case showing a patient before and immediately after the procedure",
     label: "Clinic-provided case 02",
-    note: "Procedure-day comparison supplied by HRG",
+    title: "Procedure-day comparison",
+    description: "Before and immediate post-procedure imagery supplied by HRG. Procedure notes and follow-up details are pending clinic confirmation.",
+    comparison: "Before / procedure day",
   },
 ] as const;
 
@@ -29,17 +33,36 @@ export function CaseStudies() {
         </div>
       </div>
 
-      <div className="case-grid">
+      <div className="case-list">
         {cases.map((item, index) => (
-          <figure className={`case-figure case-figure-${index + 1}`} key={item.src}>
-            <div className="case-image">
-              <Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 94vw, 42vw" />
-            </div>
-            <figcaption>
+          <article className={`case-card case-card-${index + 1}`} key={item.src}>
+            <div className="case-card-media">
+              <Image
+                className={`case-photo case-photo-${index + 1}`}
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 1000px) 100vw, 58vw"
+              />
               <span>{item.label}</span>
-              <small>{item.note}</small>
-            </figcaption>
-          </figure>
+            </div>
+            <div className="case-card-copy">
+              <p className="case-kicker">Clinic-supplied result</p>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <dl>
+                <div>
+                  <dt>Visual</dt>
+                  <dd>{item.comparison}</dd>
+                </div>
+                <div>
+                  <dt>Clinical details</dt>
+                  <dd>Pending clinic confirmation</dd>
+                </div>
+              </dl>
+              <a className="arrow-link" href="#contact">Discuss your consultation</a>
+            </div>
+          </article>
         ))}
       </div>
     </section>
