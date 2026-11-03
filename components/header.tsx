@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -23,8 +24,14 @@ export function Header({ onBook }: { onBook: () => void }) {
   return (
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="HRG Hair Regrowth Clinic, home">
-        <span>HRG</span>
-        <small>Hair Regrowth Clinic</small>
+        <Image
+          className="brand-logo"
+          src="/images/hrg-logo-transparent.png"
+          alt=""
+          width={1448}
+          height={1086}
+          priority
+        />
       </a>
 
       <nav className="desktop-nav" aria-label="Primary navigation">
