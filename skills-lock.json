@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "oxfords": {
+      "source": "arhamhi/oxfords",
+      "sourceType": "github",
+      "skillPath": "skills/oxfords/SKILL.md",
+      "computedHash": "a2b1a1a96003f65d50fb3166f7c53a58a1f5db8546dfda76a8b1202f82336ae0"
+    }
+  }
+}
