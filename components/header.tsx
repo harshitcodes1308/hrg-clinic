@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -42,7 +42,7 @@ export function Header({ onBook }: { onBook: () => void }) {
 
       <div className="header-actions">
         <button className="button button-small desktop-book" type="button" onClick={onBook}>
-          Book consultation
+          <MessageCircle aria-hidden="true" /> Book on WhatsApp
         </button>
         <button
           className="menu-button"
@@ -62,7 +62,7 @@ export function Header({ onBook }: { onBook: () => void }) {
             <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
           ))}
           <button type="button" className="button" onClick={() => { setOpen(false); onBook(); }}>
-            Book consultation
+            <MessageCircle aria-hidden="true" /> Book on WhatsApp
           </button>
         </nav>
       )}

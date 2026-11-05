@@ -3,26 +3,25 @@ import { buildWhatsAppUrl, formatBookingMessage } from "../lib/booking";
 
 const booking = {
   fullName: "Aarav Mehta",
-  phone: "+91 9876543210",
-  treatment: "Not Sure / Need Guidance" as const,
-  date: "2026-11-17",
-  time: "Afternoon" as const,
-  message: "I’d like to understand my options & expected recovery.",
+  age: "34",
+  location: "Rohini, Delhi",
+  treatment: "Not sure / need guidance" as const,
 };
 
 describe("WhatsApp booking", () => {
-  it("formats representative input without dropping punctuation", () => {
+  it("formats representative booking details", () => {
     const message = formatBookingMessage(booking);
     expect(message).toContain("Name: Aarav Mehta");
-    expect(message).toContain("17 November 2026");
-    expect(message).toContain("options & expected recovery");
+    expect(message).toContain("Age: 34");
+    expect(message).toContain("Location: Rohini, Delhi");
+    expect(message).toContain("Treatment Interest: Not sure / need guidance");
   });
 
   it("builds an encoded click-to-chat URL", () => {
     const url = buildWhatsAppUrl("919999999999", booking);
     expect(url).toMatch(/^https:\/\/wa\.me\/919999999999\?text=/);
     expect(url).toContain("Aarav+Mehta");
-    expect(url).toContain("%26+expected+recovery");
+    expect(url).toContain("Rohini%2C+Delhi");
   });
 
   it("returns null when the clinic number is unconfigured", () => {

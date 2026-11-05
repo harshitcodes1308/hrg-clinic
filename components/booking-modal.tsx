@@ -2,14 +2,12 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { X } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   bookingSchema,
   buildWhatsAppUrl,
-  getTodayInIndia,
-  timeOptions,
   treatmentOptions,
   type BookingData,
 } from "@/lib/booking";
@@ -21,11 +19,9 @@ type BookingModalProps = {
 
 const emptyValues: BookingData = {
   fullName: "",
-  phone: "",
+  age: "",
+  location: "",
   treatment: undefined as unknown as BookingData["treatment"],
-  date: "",
-  time: undefined as unknown as BookingData["time"],
-  message: "",
 };
 
 export function BookingModal({ open, onClose }: BookingModalProps) {
@@ -39,6 +35,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
   } = useForm<BookingData>({
     resolver: zodResolver(bookingSchema),
     defaultValues: emptyValues,
+    mode: "onBlur",
   });
 
   useEffect(() => {
@@ -107,46 +104,40 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: reduceMotion ? 0.16 : 0.3, ease: "easeOut" }}
           >
-            <div className="dialog-heading">
-              <div>
-                <p className="eyebrow">Consultation request</p>
-                <h2 id="booking-title">Begin with a conversation.</h2>
-                <p>Share your preferences. You’ll review the prepared message in WhatsApp before sending it.</p>
-              </div>
-              <button ref={closeRef} className="close-button" type="button" onClick={onClose} aria-label="Close consultation form">
-                <X aria-hidden="true" />
-              </button>
+            <button ref={closeRef} className="close-button" type="button" onClick={onClose} aria-label="Close consultation form">
+              <X aria-hidden="true" />
+            </button>
+            <div className="dialog-intro">
+              <p>WhatsApp consultation</p>
+              <h2 id="booking-title">Tell us what you’re looking for.</h2>
+              <p>Four details prepare your inquiry. Nothing is sent until you review it in WhatsApp.</p>
+              <ul>
+                <li><Check aria-hidden="true" /> No medical history requested</li>
+                <li><Check aria-hidden="true" /> Review before sending</li>
+              </ul>
             </div>
 
-            <form onSubmit={handleSubmit(submit)} noValidate>
+            <div className="dialog-form">
+              <form onSubmit={handleSubmit(submit)} noValidate>
               <div className="form-grid">
-                <Field label="Full name" error={errors.fullName?.message} span>
+                <Field label="Full name" error={errors.fullName?.message}>
                   <input autoComplete="name" {...register("fullName")} aria-invalid={!!errors.fullName} />
                 </Field>
-                <Field label="Phone number" hint="Indian mobile number, with or without +91" error={errors.phone?.message}>
-                  <input type="tel" inputMode="tel" autoComplete="tel" {...register("phone")} aria-invalid={!!errors.phone} />
+                <Field label="Age" hint="In years" error={errors.age?.message}>
+                  <input type="number" inputMode="numeric" min="1" max="120" {...register("age")} aria-invalid={!!errors.age} />
                 </Field>
-                <Field label="Treatment interest" error={errors.treatment?.message}>
+                <Field label="Location" hint="City or area" error={errors.location?.message} span>
+                  <input autoComplete="address-level2" {...register("location")} aria-invalid={!!errors.location} />
+                </Field>
+                <Field label="Treatment interest" error={errors.treatment?.message} span>
                   <select defaultValue="" {...register("treatment")} aria-invalid={!!errors.treatment}>
                     <option value="" disabled>Select an option</option>
                     {treatmentOptions.map((option) => <option key={option}>{option}</option>)}
                   </select>
                 </Field>
-                <Field label="Preferred date" error={errors.date?.message}>
-                  <input type="date" min={getTodayInIndia()} {...register("date")} aria-invalid={!!errors.date} />
-                </Field>
-                <Field label="Preferred time" error={errors.time?.message}>
-                  <select defaultValue="" {...register("time")} aria-invalid={!!errors.time}>
-                    <option value="" disabled>Select a time</option>
-                    {timeOptions.map((option) => <option key={option}>{option}</option>)}
-                  </select>
-                </Field>
-                <Field label="Additional message" hint="Optional, up to 500 characters" error={errors.message?.message} span>
-                  <textarea rows={3} {...register("message")} aria-invalid={!!errors.message} />
-                </Field>
               </div>
 
-              <p className="consent-copy">Your entries are used only to prepare this WhatsApp inquiry. This is a request, not a confirmed appointment.</p>
+              <p className="consent-copy">These details are used only to prepare your WhatsApp inquiry. They are not stored by this website.</p>
               {configurationError && (
                 <div className="configuration-error" role="alert">
                   Demo setup needed: add <code>NEXT_PUBLIC_CLINIC_WHATSAPP_NUMBER</code> to <code>.env.local</code>, then restart the site. Your form entries remain here.
@@ -158,7 +149,8 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                   {isSubmitting ? "Preparing message…" : "Continue to WhatsApp"}
                 </button>
               </div>
-            </form>
+              </form>
+            </div>
           </motion.div>
         </motion.div>
       )}
@@ -183,7 +175,9 @@ function Field({
     <label className={`field ${span ? "field-span" : ""}`}>
       <span>{label}</span>
       {children}
-      {error ? <small className="field-error">{error}</small> : hint ? <small>{hint}</small> : null}
+      <small className={error ? "field-error" : undefined} aria-live="polite">
+        {error ?? hint ?? "\u00A0"}
+      </small>
     </label>
   );
 }

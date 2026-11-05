@@ -1,63 +1,38 @@
 import { z } from "zod";
 
 export const treatmentOptions = [
-  "Hair Transplant Consultation",
-  "Hair Regrowth Assessment",
-  "PRP Treatment",
-  "Not Sure / Need Guidance",
+  "Hair transplant consultation",
+  "Hair regrowth assessment",
+  "PRP treatment",
+  "Hairline restoration",
+  "Not sure / need guidance",
 ] as const;
-
-export const timeOptions = ["Morning", "Afternoon", "Evening"] as const;
-
-const indianPhone = /^(?:(?:\+|00)91[ -]?)?[6-9]\d{9}$/;
 
 export const bookingSchema = z.object({
   fullName: z.string().trim().min(2, "Enter your full name."),
-  phone: z
+  age: z
     .string()
     .trim()
-    .regex(indianPhone, "Enter a valid Indian mobile number, with or without +91."),
+    .regex(/^\d{1,3}$/, "Enter your age in years.")
+    .refine((value) => Number(value) >= 1 && Number(value) <= 120, "Enter an age between 1 and 120."),
+  location: z.string().trim().min(2, "Enter your city or area.").max(80, "Keep the location under 80 characters."),
   treatment: z.enum(treatmentOptions, { message: "Choose a treatment interest." }),
-  date: z
-    .string()
-    .min(1, "Choose a preferred date.")
-    .refine((value) => value >= getTodayInIndia(), "Choose today or a future date."),
-  time: z.enum(timeOptions, { message: "Choose a preferred time." }),
-  message: z.string().trim().max(500, "Keep the message under 500 characters."),
 });
 
 export type BookingData = z.infer<typeof bookingSchema>;
 
-export function getTodayInIndia() {
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Kolkata",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date());
-}
-
 export function formatBookingMessage(data: BookingData) {
-  const readableDate = new Intl.DateTimeFormat("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "Asia/Kolkata",
-  }).format(new Date(`${data.date}T12:00:00+05:30`));
-
   return [
     "Hello HRG Hair Regrowth Clinic,",
     "",
     "I would like to request a consultation.",
     "",
     `Name: ${data.fullName}`,
-    `Phone: ${data.phone}`,
+    `Age: ${data.age}`,
+    `Location: ${data.location}`,
     `Treatment Interest: ${data.treatment}`,
-    `Preferred Date: ${readableDate}`,
-    `Preferred Time: ${data.time}`,
-    `Additional Message: ${data.message || "Not provided"}`,
     "",
-    "Please let me know the available appointment slots.",
+    "Please let me know the next steps for a consultation.",
     "",
     "Thank you.",
   ].join("\n");

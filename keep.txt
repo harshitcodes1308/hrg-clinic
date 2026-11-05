@@ -1,9 +1,27 @@
-# Local redesign keep list: patient-results presentation
-# Keep the existing section anchor, consultation anchor, brand palette, logo, and supplied imagery.
+# Full homepage rework keep list
+# Keep product name, logo, section anchors, navigation labels, supplied patient imagery, cautious medical copy, and WhatsApp review-before-send behavior.
+# Palette and typography are intentionally changing to match the clinic logo and supplied proof artwork.
+# Booking fields intentionally change from phone/date/time/message to age/location per the user's current request.
+HRG Hair Regrowth Clinic
+About
+Treatments
+Our approach
+Contact
+Confidence,
+restored naturally.
+Hair transplant consultation
+Hair regrowth assessment
+PRP treatment
+Hairline restoration
+Consultation
+Assessment
+Personalised treatment planning
+Follow-up care
 Patient cases
-Real work deserves
-real context.
-These images were supplied by the clinic. They are presented without invented patient stories, ratings, or timelines.
-Results vary by individual. Patient consent, dates, treatment details, and final clinical approval should be confirmed before public launch.
 Clinic-provided case 01
 Clinic-provided case 02
+Results vary by individual.
+Good decisions begin with
+good questions.
+WhatsApp consultation
+FAQs

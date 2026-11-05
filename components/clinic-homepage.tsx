@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, MessageCircle } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
 import { BookingModal } from "@/components/booking-modal";
@@ -55,10 +55,14 @@ export function ClinicHomepage() {
               <h1 id="hero-title">Confidence,<br /><em>restored naturally.</em></h1>
               <p>Personalised hair restoration, guided by thoughtful care and a commitment to natural-looking outcomes.</p>
               <div className="hero-actions">
-                <button className="button" type="button" onClick={openBooking}>Book consultation</button>
+                <button className="button button-lead" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Book on WhatsApp</button>
                 <a className="arrow-link" href="#approach">Explore our approach <ArrowDownRight aria-hidden="true" /></a>
               </div>
-              <small>Draft brand content pending clinical and client approval.</small>
+              <div className="hero-assurance" aria-label="Consultation request details">
+                <span>Private inquiry</span>
+                <span>Review before sending</span>
+                <span>Clinic replies in WhatsApp</span>
+              </div>
             </motion.div>
 
             <motion.div
@@ -121,7 +125,7 @@ export function ClinicHomepage() {
                       <h3>{treatment.title}</h3>
                       <p>{treatment.copy}</p>
                     </div>
-                    <a href="#contact" aria-label={`Discuss ${treatment.title}`}>Discuss <ArrowRight aria-hidden="true" /></a>
+                    <button className="treatment-discuss" type="button" onClick={openBooking} aria-label={`Discuss ${treatment.title}`}>Discuss <ArrowRight aria-hidden="true" /></button>
                   </article>
                 ))}
               </div>
@@ -169,11 +173,11 @@ export function ClinicHomepage() {
               <p className="section-index">Clinic philosophy</p>
               <h2 id="philosophy-title">Care is as much about <em>clarity</em> as treatment.</h2>
               <p>Clear conversations should cover what may be suitable, what may not, and what a person can reasonably expect.</p>
-              <a className="arrow-link light-link" href="#contact">Start a conversation <ArrowRight aria-hidden="true" /></a>
+              <button className="arrow-link light-link" type="button" onClick={openBooking}>Start a conversation <ArrowRight aria-hidden="true" /></button>
             </div>
           </section>
 
-          <CaseStudies />
+          <CaseStudies onBook={openBooking} />
 
           <section className="faq section-pad" aria-labelledby="faq-title">
             <div className="faq-heading">
@@ -192,8 +196,8 @@ export function ClinicHomepage() {
               <h2 id="cta-title">Begin with<br />a <em>conversation.</em></h2>
             </div>
             <div className="footer-action">
-              <p>Send a consultation request in WhatsApp. You review the message before anything is sent.</p>
-              <button className="button button-light" type="button" onClick={openBooking}>Schedule a consultation</button>
+              <p>Share four details, review the prepared inquiry, then choose whether to send it in WhatsApp.</p>
+              <button className="button button-light" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Book on WhatsApp</button>
             </div>
           </div>
           <div className="footer-next" aria-label="What happens next">
@@ -216,6 +220,10 @@ export function ClinicHomepage() {
         </footer>
       </div>
 
+      <button className="whatsapp-dock" type="button" onClick={openBooking}>
+        <MessageCircle aria-hidden="true" />
+        <span>Book on WhatsApp</span>
+      </button>
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </>
   );

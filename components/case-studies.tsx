@@ -19,7 +19,7 @@ const cases = [
   },
 ] as const;
 
-export function CaseStudies() {
+export function CaseStudies({ onBook }: { onBook: () => void }) {
   return (
     <section className="case-studies section-pad" aria-labelledby="results-title">
       <div className="case-heading">
@@ -60,7 +60,7 @@ export function CaseStudies() {
                   <dd>Pending clinic confirmation</dd>
                 </div>
               </dl>
-              <a className="arrow-link" href="#contact">Discuss your consultation</a>
+              <button className="arrow-link" type="button" onClick={onBook}>Discuss your consultation</button>
             </div>
           </article>
         ))}

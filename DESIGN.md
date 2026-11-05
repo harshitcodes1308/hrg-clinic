@@ -1,22 +1,23 @@
 # HRG design system
 
 - Reading: a premium clinic consultation site for prospective patients, used on mobile and desktop; light and roomy.
-- Palette: client-owned Porcelain `#F5F1E8`, Forest Ink `#23382F`, and Antique Brass `#B49A6C`.
-- Colour command: not generated; the project brief explicitly fixes the three brand values. Tonal variants use `color-mix()` from those tokens.
-- Porcelain is the editorial ground, Forest Ink is text and the philosophy/footer flood, and Brass is reserved for rules and selected emphasis.
-- Mode: light only. The warm editorial identity and clinical photography are designed and measured for this ground.
-- Display family: Cormorant Garamond, because the brand brief specifies its calligraphic editorial character.
-- UI family: DM Sans, because the brand brief specifies a quiet, legible counterpoint for controls and body copy.
-- Type scale: 11–20px UI/body, 28–40px tertiary display, 46–116px section/hero display using fluid `clamp()`.
+- Palette command: `palette.mjs --lead "#00AEEF" --support "#061A33" --pop "#C7D1DC" --mode light --ground white --ramps`.
+- White and neutral greys are the ground; HRG cyan leads conversion content; proof-artwork navy floods the hero, philosophy, results, and footer; logo silver stays a quiet supporting mark.
+- Mode: light only, because visitors are comparing treatments and completing a short form in mixed daytime environments.
+- Display family: Source Serif 4, because its sturdy optical forms make large medical headlines feel assured rather than fashion-led.
+- UI family: Schibsted Grotesk, because its compact clarity keeps navigation, forms, and dense cautions easy to scan.
+- Type scale: 11–20px UI/body, 28–40px tertiary display, 48–120px section/hero display using fluid `clamp()`.
 - Spacing: 4px base; 8–12px inside groups, 20–48px between controls/content, 84–152px between sections.
 - Radius: 0 throughout. Crisp edges suit the Swiss-editorial direction and avoid decorative card styling.
 - Icons: Lucide, 1.5px stroke, used only for navigation direction and close/menu controls.
-- Motion: 120–240ms for control feedback and 300–560ms for the single hero handoff; transform/opacity only.
+- Motion: 120–240ms for control feedback and 300–560ms for the single hero handoff; transform and opacity only.
 - Reduced motion: slides become brief fades and CSS removes incidental movement.
 - Photography: original AI-generated demo editorial imagery, pending replacement or approval before launch.
-- Identity: the clinic-supplied metallic HRG mark is used as a transparent image in the header and footer; its blue remains confined to the artwork, not the interface palette.
-- Content rhythm: text-led sections alternate with environment, patient, assessment-detail, process, and case-study compositions so imagery carries meaning rather than decoration.
+- Identity: the clinic-supplied metallic HRG mark establishes the cyan, navy, and silver colour roles used throughout the interface.
+- Content rhythm: a navy split hero, white editorial story, grey treatment ledger, cyan assessment block, process strip, navy results, and conversion footer create distinct scanning moments.
 - Patient cases: clinic-supplied posters are cropped to their photographic comparisons inside alternating editorial case-study panels, labelled as supplied material with an outcomes-and-consent disclaimer.
+- Conversion: every main CTA opens the same four-field WhatsApp request dialog; a labelled fixed dock keeps the primary action visible on phones.
 - Footer: the consultation CTA, three-step expectation setting, brand identity, and utility links form one asymmetrical closing composition.
-- Exception: Oxfords discourages cream grounds and the selected fonts as generic defaults; both are explicit client-brief requirements here.
-- Exception: rendered neutral share may fall just below 60% because the client-supplied blue case posters and photographic skin tones are content, not added UI hues; all CSS surfaces remain within the three-colour brand system.
+- Exception: the lead sits near the info hue, so it is limited to branded content and the single landing-page CTA; semantic information continues to use `--info`.
+- Exception: Oxford measures 54% neutral because real photography and clinic-supplied proof artwork contribute skin, room, and blue pixels; CSS surfaces still use only neutral, cyan, navy, and silver roles.
+- Exception: the full marketing page and booking dialog use eleven measured font sizes across metadata, body, controls, and fluid display headings; each repeated role stays consistent.
