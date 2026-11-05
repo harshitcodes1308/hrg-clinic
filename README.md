@@ -10,7 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Set `NEXT_PUBLIC_CLINIC_WHATSAPP_NUMBER` in `.env.local` to the clinic’s international-format WhatsApp number using digits only, without `+`, spaces, or punctuation. Restart the development server after changing it. If the number is absent, the form keeps the visitor’s input and shows a clear demo-configuration message instead of redirecting.
+The booking flow defaults to the clinic WhatsApp number `+91 96607 55406`. `NEXT_PUBLIC_CLINIC_WHATSAPP_NUMBER` may override it for another deployment using international-format digits only, without `+`, spaces, or punctuation. Restart the development server after changing the environment value.
 
 The inquiry asks for the visitor’s name, age, city or area, and treatment interest. The website prepares a WhatsApp draft but does not store the form or send it automatically.
 
@@ -25,7 +25,7 @@ npm run build
 
 ## Required before launch
 
-- Confirmed WhatsApp number, phone number, clinic address, hours, and map link
+- Confirmed phone number, clinic address, hours, and map link
 - Clinically approved service list and all treatment copy
 - Named clinician profiles with verified credentials and approved portraits
 - Consented, verified patient results or testimonials, if used

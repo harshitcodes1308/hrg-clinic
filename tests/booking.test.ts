@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildWhatsAppUrl, formatBookingMessage } from "../lib/booking";
+import { buildWhatsAppUrl, clinicWhatsAppNumber, formatBookingMessage } from "../lib/booking";
 
 const booking = {
   fullName: "Aarav Mehta",
@@ -18,8 +18,8 @@ describe("WhatsApp booking", () => {
   });
 
   it("builds an encoded click-to-chat URL", () => {
-    const url = buildWhatsAppUrl("919999999999", booking);
-    expect(url).toMatch(/^https:\/\/wa\.me\/919999999999\?text=/);
+    const url = buildWhatsAppUrl(clinicWhatsAppNumber, booking);
+    expect(url).toMatch(/^https:\/\/wa\.me\/919660755406\?text=/);
     expect(url).toContain("Aarav+Mehta");
     expect(url).toContain("Rohini%2C+Delhi");
   });

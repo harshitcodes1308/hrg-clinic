@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export const clinicWhatsAppNumber = "919660755406";
+
 export const treatmentOptions = [
   "Hair transplant consultation",
   "Hair regrowth assessment",

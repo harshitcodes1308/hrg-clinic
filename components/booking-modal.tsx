@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import {
   bookingSchema,
   buildWhatsAppUrl,
+  clinicWhatsAppNumber,
   treatmentOptions,
   type BookingData,
 } from "@/lib/booking";
@@ -73,7 +74,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
   }, [open, onClose]);
 
   const submit = (data: BookingData) => {
-    const number = process.env.NEXT_PUBLIC_CLINIC_WHATSAPP_NUMBER ?? "";
+    const number = process.env.NEXT_PUBLIC_CLINIC_WHATSAPP_NUMBER || clinicWhatsAppNumber;
     const url = buildWhatsAppUrl(number, data);
     if (!url) {
       setConfigurationError(true);
