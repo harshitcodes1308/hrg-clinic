@@ -29,10 +29,10 @@ const treatments = [
 ];
 
 const steps = [
-  ["01", "Consultation", "We begin with your concerns, priorities, and questions."],
-  ["02", "Assessment", "The clinical picture is considered before options are discussed."],
-  ["03", "Personalised treatment planning", "Any proposed direction is shaped around the individual."],
-  ["04", "Follow-up care", "Next steps and ongoing support are explained clearly."],
+  ["01", "Tell us what is changing", "Share what you have noticed, what concerns you, and the result you hope to achieve."],
+  ["02", "Understand the pattern", "A closer assessment helps the clinical team understand your hair, scalp, and possible causes."],
+  ["03", "Build the right plan", "Suitable options, realistic expectations, and the reasoning behind each recommendation are discussed with you."],
+  ["04", "Stay supported", "You leave knowing the next step, what recovery may involve, and how follow-up care will work."],
 ] as const;
 
 export function ClinicHomepage() {
@@ -137,17 +137,17 @@ export function ClinicHomepage() {
               <Image src="/images/hrg-scalp-assessment.png" alt="A clinician documenting a non-invasive scalp assessment" fill sizes="(max-width: 760px) 100vw, 56vw" />
             </div>
             <div className="assessment-copy section-pad">
-              <p className="section-index">Look first. Plan second.</p>
-              <h2 id="assessment-title">The detail shapes<br /><em>the direction.</em></h2>
-              <p>A closer assessment helps turn a broad concern into a more useful clinical conversation.</p>
-              <a className="arrow-link" href="#approach">See the consultation process <ArrowRight aria-hidden="true" /></a>
+              <p className="section-index">Assessment before recommendation</p>
+              <h2 id="assessment-title">Every good plan<br /><em>starts with detail.</em></h2>
+              <p>Your hair pattern, scalp health, goals, and questions all matter. The assessment turns those details into a conversation about options that may genuinely suit you.</p>
+              <a className="arrow-link" href="#approach">See how a consultation works <ArrowRight aria-hidden="true" /></a>
             </div>
           </section>
 
           <section id="approach" className="approach section-pad" aria-labelledby="approach-title">
             <div className="approach-intro">
-              <h2 id="approach-title">A clear beginning.<br /><em>A thoughtful plan.</em></h2>
-              <p>An illustrative four-step process, subject to confirmation by HRG.</p>
+              <h2 id="approach-title">From first concern<br /><em>to a clear next step.</em></h2>
+              <p>Each stage keeps the reasoning, options, and next step easy to understand.</p>
             </div>
             <ol className="steps">
               {steps.map(([number, title, copy]) => (

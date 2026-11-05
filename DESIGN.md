@@ -4,9 +4,8 @@
 - Palette command: `palette.mjs --lead "#00AEEF" --support "#061A33" --pop "#C7D1DC" --mode light --ground white --ramps`.
 - White and neutral greys are the ground; HRG cyan leads conversion content; proof-artwork navy floods the hero, philosophy, results, and footer; logo silver stays a quiet supporting mark.
 - Mode: light only, because visitors are comparing treatments and completing a short form in mixed daytime environments.
-- Display family: Source Serif 4, because its sturdy optical forms make large medical headlines feel assured rather than fashion-led.
-- UI family: Schibsted Grotesk, because its compact clarity keeps navigation, forms, and dense cautions easy to scan.
-- Type scale: 11–20px UI/body, 28–40px tertiary display, 48–120px section/hero display using fluid `clamp()`.
+- Type family: Bricolage Grotesque throughout, because its expressive proportions give HRG a recognisable voice while its open forms remain clear in navigation, forms, and clinical copy.
+- Type scale: 11–20px UI/body, 32–44px process headings, 46–112px section/hero display using fluid `clamp()`.
 - Spacing: 4px base; 8–12px inside groups, 20–48px between controls/content, 84–152px between sections.
 - Radius: 0 throughout. Crisp edges suit the Swiss-editorial direction and avoid decorative card styling.
 - Icons: Lucide, 1.5px stroke, used only for navigation direction and close/menu controls.
@@ -14,10 +13,10 @@
 - Reduced motion: slides become brief fades and CSS removes incidental movement.
 - Photography: original AI-generated demo editorial imagery, pending replacement or approval before launch.
 - Identity: the clinic-supplied metallic HRG mark establishes the cyan, navy, and silver colour roles used throughout the interface.
-- Content rhythm: a navy split hero, white editorial story, grey treatment ledger, cyan assessment block, process strip, navy results, and conversion footer create distinct scanning moments.
+- Content rhythm: a navy split hero, white editorial story, grey treatment ledger, navy assessment block, spacious two-column process, navy results, and conversion footer create distinct scanning moments.
 - Patient cases: clinic-supplied posters are cropped to their photographic comparisons inside alternating editorial case-study panels, labelled as supplied material with an outcomes-and-consent disclaimer.
 - Conversion: every main CTA opens the same four-field WhatsApp request dialog; a labelled fixed dock keeps the primary action visible on phones.
 - Footer: the consultation CTA, three-step expectation setting, brand identity, and utility links form one asymmetrical closing composition.
 - Exception: the lead sits near the info hue, so it is limited to branded content and the single landing-page CTA; semantic information continues to use `--info`.
 - Exception: Oxford measures 54% neutral because real photography and clinic-supplied proof artwork contribute skin, room, and blue pixels; CSS surfaces still use only neutral, cyan, navy, and silver roles.
-- Exception: the full marketing page and booking dialog use eleven measured font sizes across metadata, body, controls, and fluid display headings; each repeated role stays consistent.
+- Exception: the full marketing page and booking dialog use ten measured font sizes across metadata, body, controls, and fluid display headings; each repeated role stays consistent and the larger process copy is intentionally distinct from metadata.

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import "@fontsource/source-serif-4/400.css";
-import "@fontsource/source-serif-4/400-italic.css";
-import "@fontsource/source-serif-4/600.css";
-import "@fontsource/schibsted-grotesk/400.css";
-import "@fontsource/schibsted-grotesk/500.css";
-import "@fontsource/schibsted-grotesk/600.css";
-import "@fontsource/schibsted-grotesk/700.css";
+import "@fontsource/bricolage-grotesque/400.css";
+import "@fontsource/bricolage-grotesque/500.css";
+import "@fontsource/bricolage-grotesque/600.css";
+import "@fontsource/bricolage-grotesque/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

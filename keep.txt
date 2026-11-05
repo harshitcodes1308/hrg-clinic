@@ -1,6 +1,7 @@
 # Full homepage rework keep list
 # Keep product name, logo, section anchors, navigation labels, supplied patient imagery, cautious medical copy, and WhatsApp review-before-send behavior.
 # Palette and typography are intentionally changing to match the clinic logo and supplied proof artwork.
+# Process labels were rewritten in this pass because the user requested larger, more engaging consultation copy; their consultation, assessment, planning, and follow-up meanings remain intact.
 # Booking fields intentionally change from phone/date/time/message to age/location per the user's current request.
 HRG Hair Regrowth Clinic
 About
@@ -13,10 +14,10 @@ Hair transplant consultation
 Hair regrowth assessment
 PRP treatment
 Hairline restoration
-Consultation
-Assessment
-Personalised treatment planning
-Follow-up care
+Tell us what is changing
+Understand the pattern
+Build the right plan
+Stay supported
 Patient cases
 Clinic-provided case 01
 Clinic-provided case 02
