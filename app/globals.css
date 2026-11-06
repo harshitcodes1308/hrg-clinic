@@ -100,7 +100,8 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
 .draft-marker { display: block; margin-top: 18px; font-size: 11px; color: var(--text-3); }
 .treatment-editorial { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 0.83fr 1.17fr; gap: clamp(40px, 7vw, 104px); align-items: start; }
 .treatment-image { position: sticky; top: 28px; min-height: 720px; }
-.treatment-image img { object-position: 57% center; }
+.treatment-image-frame { position: relative; min-height: 720px; overflow: hidden; }
+.treatment-image-frame img { object-position: 57% center; }
 .treatment-list { border-top: 1px solid var(--line); }
 .treatment-list article { min-height: 170px; padding: 30px 0; display: grid; grid-template-columns: 46px 1fr auto; gap: 22px; align-items: start; border-bottom: 1px solid var(--line); }
 .treatment-list article > span { padding-top: 7px; color: var(--lead-ink); font-size: 12px; font-variant-numeric: tabular-nums; }
@@ -285,6 +286,7 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .section-heading { gap: 38px; margin-bottom: 54px; }
   .treatment-editorial { gap: 52px; }
   .treatment-image { position: relative; top: auto; min-height: 430px; margin: 0 calc(-1 * var(--gutter)); }
+  .treatment-image-frame { min-height: 430px; }
   .treatment-list article { grid-template-columns: 38px 1fr; gap: 10px; }
   .treatment-list article > a { grid-column: 2; }
   .assessment-photo { min-height: 430px; }

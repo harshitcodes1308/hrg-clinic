@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowDownRight, ArrowRight, MessageCircle } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { BookingModal } from "@/components/booking-modal";
 import { CaseStudies } from "@/components/case-studies";
@@ -37,7 +37,6 @@ const steps = [
 
 export function ClinicHomepage() {
   const [bookingOpen, setBookingOpen] = useState(false);
-  const reduceMotion = useReducedMotion();
   const openBooking = () => setBookingOpen(true);
 
   return (
@@ -48,9 +47,9 @@ export function ClinicHomepage() {
           <section className="hero" aria-labelledby="hero-title">
             <motion.div
               className="hero-copy"
-              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduceMotion ? 0.16 : 0.48, ease: "easeOut" }}
+              transition={{ duration: 0.48, ease: "easeOut" }}
             >
               <h1 id="hero-title">Confidence,<br /><em>restored naturally.</em></h1>
               <p>Personalised hair restoration, guided by thoughtful care and a commitment to natural-looking outcomes.</p>
@@ -67,9 +66,9 @@ export function ClinicHomepage() {
 
             <motion.div
               className="hero-image-wrap"
-              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 14 }}
+              initial={{ opacity: 0, x: 14 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: reduceMotion ? 0.16 : 0.56, ease: "easeOut" }}
+              transition={{ duration: 0.56, ease: "easeOut" }}
             >
               <Image
                 src="/images/hrg-hero.png"
@@ -110,12 +109,14 @@ export function ClinicHomepage() {
 
             <div className="treatment-editorial">
               <div className="treatment-image">
-                <Image
-                  src="/images/hrg-assessment.png"
-                  alt="A respectful close assessment of a client's hair and scalp"
-                  fill
-                  sizes="(max-width: 800px) 100vw, 45vw"
-                />
+                <div className="treatment-image-frame">
+                  <Image
+                    src="/images/hrg-assessment.png"
+                    alt="A respectful close assessment of a client's hair and scalp"
+                    fill
+                    sizes="(max-width: 800px) 100vw, 45vw"
+                  />
+                </div>
               </div>
               <div className="treatment-list">
                 {treatments.map((treatment, index) => (
