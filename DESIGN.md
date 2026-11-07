@@ -13,7 +13,7 @@
 - Reduced motion: slides become brief fades and CSS removes incidental movement.
 - Photography: original AI-generated demo editorial imagery, pending replacement or approval before launch.
 - Identity: the clinic-supplied metallic HRG mark establishes the cyan, navy, and silver colour roles used throughout the interface.
-- Content rhythm: a navy split hero, white editorial story, grey treatment ledger, navy assessment block, spacious two-column process, navy results, and conversion footer create distinct scanning moments.
+- Content rhythm: a navy split hero hands directly to the white patient-evidence gallery, followed by the editorial story, grey treatment ledger, navy assessment block, spacious two-column process, clinic philosophy, questions, and conversion footer.
 - Patient cases: four clinic-supplied cases sit in a two-column evidence gallery; supplied posters retain their comparison crop, new raw photographs are paired and labelled before/procedure day, and no later outcome is implied where none was supplied.
 - Conversion: every main CTA opens the same four-field WhatsApp request dialog; a labelled fixed dock keeps the primary action visible on phones.
 - Footer: the consultation CTA, three-step expectation setting, brand identity, and utility links form one asymmetrical closing composition.

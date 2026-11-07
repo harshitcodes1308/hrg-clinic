@@ -81,6 +81,8 @@ export function ClinicHomepage() {
             </motion.div>
           </section>
 
+          <CaseStudies onBook={openBooking} />
+
           <section id="about" className="brand-statement section-pad" aria-labelledby="about-title">
             <div className="brand-copy">
               <p className="section-index">Our point of view</p>
@@ -177,8 +179,6 @@ export function ClinicHomepage() {
               <button className="arrow-link light-link" type="button" onClick={openBooking}>Start a conversation <ArrowRight aria-hidden="true" /></button>
             </div>
           </section>
-
-          <CaseStudies onBook={openBooking} />
 
           <section className="faq section-pad" aria-labelledby="faq-title">
             <div className="faq-heading">
