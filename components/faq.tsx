@@ -20,6 +20,22 @@ const questions = [
     question: "How should I prepare for a consultation?",
     answer: "Bring your questions and any relevant treatment information you are comfortable sharing. The demo inquiry form intentionally does not collect medical history or scalp photographs.",
   },
+  {
+    question: "What can affect the cost of treatment?",
+    answer: "The area involved, donor hair availability, the proposed approach, and whether care may need more than one stage can all affect an estimate. A price should follow an individual assessment, not precede it.",
+  },
+  {
+    question: "How long does recovery take?",
+    answer: "Recovery depends on the treatment and the person. The treating clinician should explain expected downtime, aftercare, warning signs, and follow-up before you decide to proceed.",
+  },
+  {
+    question: "When might I notice a change?",
+    answer: "Timelines vary by treatment and individual response. Ask the clinical team for a realistic range, what progress can look like, and when they would review it with you.",
+  },
+  {
+    question: "Can women request an assessment too?",
+    answer: "Yes. Hair loss can present differently for each person, so the appropriate first step is an individual assessment rather than assuming one diagnosis or treatment route.",
+  },
 ];
 
 export function Faq() {

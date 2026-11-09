@@ -5,10 +5,10 @@ import { Menu, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const links = [
-  ["About", "#about"],
+  ["Results", "#results-title"],
   ["Treatments", "#treatments"],
   ["Our approach", "#approach"],
-  ["Contact", "#contact"],
+  ["FAQs", "#faq-title"],
 ] as const;
 
 export function Header({ onBook }: { onBook: () => void }) {

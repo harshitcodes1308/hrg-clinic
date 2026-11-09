@@ -8,6 +8,7 @@ import { BookingModal } from "@/components/booking-modal";
 import { CaseStudies } from "@/components/case-studies";
 import { Faq } from "@/components/faq";
 import { Header } from "@/components/header";
+import { InlineBooking } from "@/components/inline-booking";
 
 const treatments = [
   {
@@ -29,10 +30,25 @@ const treatments = [
 ];
 
 const steps = [
-  ["01", "Tell us what is changing", "Share what you have noticed, what concerns you, and the result you hope to achieve."],
-  ["02", "Understand the pattern", "A closer assessment helps the clinical team understand your hair, scalp, and possible causes."],
-  ["03", "Build the right plan", "Suitable options, realistic expectations, and the reasoning behind each recommendation are discussed with you."],
-  ["04", "Stay supported", "You leave knowing the next step, what recovery may involve, and how follow-up care will work."],
+  ["01", "Tell us what is changing", "Tell the team what you have noticed, what concerns you, and the outcome you hope to understand."],
+  ["02", "Understand the pattern", "Your hair pattern, scalp, donor area, goals, and relevant context shape the conversation."],
+  ["03", "Build the right plan", "Potential routes are explained with realistic expectations and the reasoning behind each one."],
+  ["04", "Prepare with clarity", "If you choose to proceed, you should understand preparation, recovery, aftercare, and who to contact."],
+  ["05", "Stay supported", "Progress is individual. Follow-up creates space to review recovery, questions, and the next appropriate step."],
+] as const;
+
+const costFactors = [
+  ["01", "Area and pattern", "The extent and pattern of hair loss influence what may be appropriate."],
+  ["02", "Donor availability", "The donor area and individual hair characteristics need careful assessment."],
+  ["03", "Treatment route", "Different non-surgical and procedural routes involve different plans."],
+  ["04", "Care and follow-up", "Preparation, aftercare, and any staged sessions should be part of the estimate."],
+] as const;
+
+const consultationChecks = [
+  ["Pattern", "What the visible pattern may suggest and what still needs clinical review."],
+  ["Scalp and donor area", "The condition of the scalp and the hair available for a potential procedure."],
+  ["Goals", "The change you want, what may be realistic, and where expectations need alignment."],
+  ["Next steps", "Options, trade-offs, recovery, and the questions to answer before deciding."],
 ] as const;
 
 export function ClinicHomepage() {
@@ -100,6 +116,27 @@ export function ClinicHomepage() {
             </div>
           </section>
 
+          <section className="cost-guide section-pad" aria-labelledby="cost-title">
+            <div className="cost-heading">
+              <p className="section-index">Understanding treatment cost</p>
+              <h2 id="cost-title">A useful estimate starts with <em>your assessment.</em></h2>
+              <p>There is no honest one-price answer without understanding the person and the plan. These are the main factors a consultation should clarify.</p>
+            </div>
+            <ol className="cost-grid">
+              {costFactors.map(([number, title, copy]) => (
+                <li key={number}>
+                  <span>{number}</span>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="cost-action">
+              <p>Ask for a recommendation and estimate that explains what is included.</p>
+              <button className="button button-lead" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Request an assessment</button>
+            </div>
+          </section>
+
           <section id="treatments" className="treatments section-pad" aria-labelledby="treatments-title">
             <div className="section-heading">
               <h2 id="treatments-title">Possible paths,<br /><em>properly considered.</em></h2>
@@ -147,6 +184,23 @@ export function ClinicHomepage() {
             </div>
           </section>
 
+          <section className="consultation-standard section-pad" aria-labelledby="consultation-standard-title">
+            <div className="consultation-standard-heading">
+              <p className="section-index">What the consultation should clarify</p>
+              <h2 id="consultation-standard-title">Know what is being considered, <em>and why.</em></h2>
+              <p>A strong consultation makes the reasoning visible. It should leave you better informed, even if the right next step is to wait or explore another route.</p>
+            </div>
+            <div className="consultation-checks">
+              {consultationChecks.map(([title, copy], index) => (
+                <article key={title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section id="approach" className="approach section-pad" aria-labelledby="approach-title">
             <div className="approach-intro">
               <h2 id="approach-title">From first concern<br /><em>to a clear next step.</em></h2>
@@ -188,6 +242,8 @@ export function ClinicHomepage() {
             <Faq />
           </section>
 
+          <InlineBooking />
+
         </main>
 
         <footer id="contact" className="footer">
@@ -213,7 +269,7 @@ export function ClinicHomepage() {
               </a>
               <p>Personalised hair restoration, guided by thoughtful care.</p>
             </div>
-            <div><h3>Explore</h3><a href="#about">About</a><a href="#treatments">Treatments</a><a href="#approach">Our approach</a><a href="#results-title">Patient cases</a></div>
+            <div><h3>Explore</h3><a href="#results-title">Patient cases</a><a href="#treatments">Treatments</a><a href="#approach">Our approach</a><a href="#faq-title">FAQs</a></div>
             <div><h3>Contact</h3><button type="button" onClick={openBooking}>WhatsApp consultation</button><span>Phone pending</span><span>Location pending</span></div>
             <div><h3>Information</h3><a href="#faq-title">FAQs</a><a href="#contact">Privacy notice pending</a><a href="#contact">Terms pending</a></div>
           </div>

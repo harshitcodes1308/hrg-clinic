@@ -82,7 +82,7 @@ input, select, textarea { caret-color: var(--lead-ink); }
 
 .section-index { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .brand-statement { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 0.72fr 1.28fr; gap: clamp(48px, 8vw, 128px); align-items: center; }
-.brand-statement h2, .section-heading h2, .assessment-copy h2, .approach h2, .philosophy h2, .case-studies h2, .faq h2, .footer-conversation h2 { margin: 0; font-family: var(--font-display); font-size: clamp(46px, 5vw, 78px); font-weight: 600; line-height: 1; letter-spacing: -0.035em; }
+.brand-statement h2, .section-heading h2, .assessment-copy h2, .approach h2, .philosophy h2, .case-studies h2, .faq h2, .footer-conversation h2, .cost-guide h2, .consultation-standard h2, .inline-booking h2 { margin: 0; font-family: var(--font-display); font-size: clamp(46px, 5vw, 78px); font-weight: 600; line-height: 1; letter-spacing: -0.035em; }
 h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
 .brand-copy h2 { max-width: 650px; margin-top: 48px; }
 .brand-copy > p:last-child { max-width: 520px; margin: 36px 0 0; color: var(--text-2); font-size: 18px; }
@@ -92,6 +92,22 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
 .brand-patient { position: absolute; left: 0; bottom: 0; width: 36%; height: 48%; border: 12px solid var(--page); overflow: hidden; box-shadow: var(--shadow-1); }
 .brand-patient img { object-position: center 34%; }
 .brand-visuals > p { position: absolute; right: 0; bottom: 5%; width: 48%; margin: 0; padding: 20px 24px; background: var(--page); font-family: var(--font-display); font-size: 22px; font-weight: 500; }
+
+.cost-guide { background: var(--support); color: var(--on-support); }
+.cost-guide > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.cost-heading { display: grid; grid-template-columns: 0.62fr 1.12fr 0.68fr; gap: clamp(40px, 6vw, 92px); align-items: end; }
+.cost-heading .section-index { align-self: start; color: var(--lead); }
+.cost-heading h2 em { color: var(--lead); }
+.cost-heading > p:last-child { margin: 0 0 6px; color: var(--on-support-2); font-size: 17px; }
+.cost-grid { margin-top: 80px; margin-bottom: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--support-line); border-bottom: 1px solid var(--support-line); }
+.cost-grid li { min-height: 300px; padding: 30px 30px 36px 0; border-right: 1px solid var(--support-line); }
+.cost-grid li + li { padding-left: 30px; }
+.cost-grid li:last-child { border-right: 0; }
+.cost-grid span { color: var(--lead); font-size: 13px; font-weight: 600; }
+.cost-grid h3 { margin: 78px 0 16px; font-size: clamp(25px, 2.3vw, 34px); line-height: 1.05; letter-spacing: -0.025em; }
+.cost-grid p { margin: 0; color: var(--on-support-2); font-size: 15px; }
+.cost-action { padding-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.cost-action p { max-width: 520px; margin: 0; color: var(--on-support-2); font-size: 16px; }
 
 .treatments { background: var(--surface-2); }
 .section-heading { max-width: var(--max); margin: 0 auto 72px; display: grid; grid-template-columns: 1.2fr 0.72fr; gap: 80px; align-items: end; }
@@ -121,15 +137,25 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
 .assessment-copy .arrow-link { border-bottom-color: var(--support-line); color: var(--on-support); font-size: 16px; }
 .assessment-story :focus-visible { outline-color: var(--lead); }
 
+.consultation-standard { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(64px, 9vw, 140px); }
+.consultation-standard-heading { position: sticky; top: 36px; align-self: start; }
+.consultation-standard-heading h2 { margin-top: 46px; }
+.consultation-standard-heading > p:last-child { max-width: 560px; margin: 34px 0 0; color: var(--text-2); font-size: 18px; }
+.consultation-checks { border-top: 1px solid var(--support); }
+.consultation-checks article { min-height: 220px; padding: 34px 0; display: grid; grid-template-columns: 54px 0.7fr 1fr; gap: 26px; align-items: start; border-bottom: 1px solid var(--line); }
+.consultation-checks span { color: var(--lead-ink); font-size: 13px; font-weight: 600; }
+.consultation-checks h3 { margin: 0; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.05; letter-spacing: -0.025em; }
+.consultation-checks p { max-width: 430px; margin: 0; color: var(--text-2); font-size: 16px; }
+
 .approach { max-width: var(--max); margin: 0 auto; }
 .approach-intro { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); align-items: end; gap: clamp(48px, 8vw, 120px); margin-bottom: 88px; }
 .approach-intro p { max-width: 440px; margin: 0 0 8px; color: var(--text-2); font-size: 18px; line-height: 1.6; }
-.steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--support); border-bottom: 1px solid var(--line); }
-.steps li { min-height: 330px; padding: 40px clamp(32px, 4vw, 64px) 46px 0; border-right: 1px solid var(--line); }
+.steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--support); border-bottom: 1px solid var(--line); }
+.steps li { min-height: 330px; padding: 40px clamp(32px, 4vw, 64px) 46px 0; border-right: 1px solid var(--line); grid-column: span 2; }
 .steps li + li { padding-left: clamp(32px, 4vw, 64px); }
-.steps li:nth-child(2) { border-right: 0; }
-.steps li:nth-child(n+3) { border-top: 1px solid var(--line); }
-.steps li:last-child { border-right: 0; }
+.steps li:nth-child(3) { border-right: 0; }
+.steps li:nth-child(n+4) { grid-column: span 3; border-top: 1px solid var(--line); }
+.steps li:nth-child(5) { border-right: 0; }
 .steps span { color: var(--lead-ink); font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .steps h3 { margin: 64px 0 18px; max-width: 470px; font-family: var(--font-display); font-size: clamp(32px, 3vw, 44px); font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; }
 .steps p { max-width: 520px; margin: 0; color: var(--text-2); font-size: 17px; line-height: 1.65; }
@@ -184,6 +210,16 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
 .faq-item button svg { width: 20px; flex: none; stroke-width: 1.5; transition: transform 180ms ease-out; }
 .faq-item button svg.rotate { transform: rotate(45deg); }
 .faq-answer p { max-width: 680px; margin: 0; padding: 0 52px 30px 0; color: var(--text-2); font-size: 15px; }
+
+.inline-booking { background: var(--surface-2); display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(64px, 9vw, 140px); }
+.inline-booking > * { min-width: 0; }
+.inline-booking-intro h2 { margin-top: 46px; }
+.inline-booking-intro > p:not(.section-index) { max-width: 570px; margin: 32px 0 0; color: var(--text-2); font-size: 18px; }
+.inline-booking-intro ul { margin: 42px 0 0; padding: 28px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; gap: 14px; color: var(--text-2); font-size: 14px; }
+.inline-booking-intro li { display: flex; align-items: center; gap: 12px; }
+.inline-booking-intro li svg { width: 18px; color: var(--lead-ink); stroke-width: 2; }
+.inline-booking-form { padding: clamp(40px, 5vw, 68px); background: var(--page); border-top: 4px solid var(--lead); box-shadow: var(--shadow-1); }
+.inline-submit { width: 100%; margin-top: 30px; }
 
 .footer { padding: var(--section) var(--gutter) 110px; background: var(--support); color: var(--on-support); }
 .footer > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
@@ -245,7 +281,13 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .desktop-nav { display: none; }
   .hero { grid-template-columns: 1fr 0.9fr; gap: 40px; padding-left: var(--gutter); }
   .hero h1 { font-size: clamp(62px, 8.5vw, 88px); }
+  .cost-heading { grid-template-columns: 1fr 1.4fr; }
+  .cost-heading > p:last-child { grid-column: 2; }
+  .cost-grid { grid-template-columns: repeat(2, 1fr); }
+  .cost-grid li:nth-child(2) { border-right: 0; }
+  .cost-grid li:nth-child(n+3) { border-top: 1px solid var(--support-line); }
   .steps { grid-template-columns: 1fr 1fr; }
+  .steps li, .steps li:nth-child(n+4) { grid-column: auto; }
   .philosophy { grid-template-columns: 1fr; }
   .philosophy-image { min-height: 560px; }
   .assessment-story { grid-template-columns: 1fr; }
@@ -274,7 +316,7 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .hero-assurance { margin-top: 36px; grid-template-columns: 1fr; gap: 8px; }
   .hero-image-wrap { min-height: 500px; margin: 0 calc(-1 * var(--gutter)); }
   .hero-image-wrap img { object-position: 59% center; }
-  .brand-statement, .section-heading, .treatment-editorial, .case-heading, .faq { grid-template-columns: 1fr; }
+  .brand-statement, .section-heading, .treatment-editorial, .case-heading, .faq, .cost-heading, .consultation-standard, .inline-booking { grid-template-columns: 1fr; }
   .brand-statement { gap: 58px; }
   .brand-statement h2, .section-heading h2, .assessment-copy h2, .approach h2, .philosophy h2, .case-studies h2, .faq h2 { font-size: clamp(46px, 13vw, 64px); }
   .brand-copy h2 { margin-top: 38px; }
@@ -283,6 +325,13 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .brand-interior { inset: 0 0 22% 0; }
   .brand-patient { left: var(--gutter); width: 46%; height: 50%; border-width: 8px; }
   .brand-visuals > p { right: var(--gutter); bottom: 5%; width: 48%; padding: 16px; font-size: 18px; }
+  .cost-heading { gap: 34px; }
+  .cost-heading > p:last-child { grid-column: auto; }
+  .cost-grid { margin-top: 54px; grid-template-columns: 1fr; }
+  .cost-grid li, .cost-grid li + li { min-height: 0; padding: 30px 0 34px; border-right: 0; border-top: 1px solid var(--support-line); }
+  .cost-grid li:first-child { border-top: 0; }
+  .cost-grid h3 { margin-top: 38px; }
+  .cost-action { align-items: flex-start; flex-direction: column; }
   .section-heading { gap: 38px; margin-bottom: 54px; }
   .treatment-editorial { gap: 52px; }
   .treatment-image { position: relative; top: auto; min-height: 430px; margin: 0 calc(-1 * var(--gutter)); }
@@ -292,6 +341,10 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .assessment-photo { min-height: 430px; }
   .assessment-copy { min-height: 580px; }
   .assessment-copy h2 { margin-top: 42px; }
+  .consultation-standard { gap: 54px; }
+  .consultation-standard-heading { position: static; }
+  .consultation-checks article { min-height: 0; grid-template-columns: 42px 1fr; gap: 12px; }
+  .consultation-checks article p { grid-column: 2; }
   .approach-intro { grid-template-columns: 1fr; align-items: start; gap: 30px; margin-bottom: 54px; }
   .steps { grid-template-columns: 1fr; }
   .steps li, .steps li + li { min-height: 0; padding: 34px 0 42px; border-right: 0; border-top: 1px solid var(--line); }
@@ -316,6 +369,8 @@ h2 em { color: var(--brass-ink); font-style: normal; font-weight: 600; }
   .case-book { width: 100%; }
   .results-booking { margin: 56px calc(-1 * var(--gutter)) 0; padding: 64px var(--gutter); grid-template-columns: 1fr; gap: 44px; }
   .faq { gap: 58px; }
+  .inline-booking { gap: 54px; }
+  .inline-booking-form { margin: 0 calc(-1 * var(--gutter)); padding: 44px var(--gutter); }
   .footer-conversation { min-height: 0; grid-template-columns: 1fr; gap: 72px; padding-bottom: 72px; }
   .footer-conversation h2 { font-size: clamp(50px, 14vw, 62px); overflow-wrap: anywhere; }
   .footer-action { max-width: none; }

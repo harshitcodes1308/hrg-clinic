@@ -13,9 +13,9 @@
 - Reduced motion: slides become brief fades and CSS removes incidental movement.
 - Photography: original AI-generated demo editorial imagery, pending replacement or approval before launch.
 - Identity: the clinic-supplied metallic HRG mark establishes the cyan, navy, and silver colour roles used throughout the interface.
-- Content rhythm: a navy split hero hands directly to the white patient-evidence gallery, followed by the editorial story, grey treatment ledger, navy assessment block, spacious two-column process, clinic philosophy, questions, and conversion footer.
+- Content rhythm: a navy split hero hands directly to the white patient-evidence gallery, followed by clinic environment, an evidence-minded cost guide, treatment routes, suitability assessment, consultation standards, a five-step care journey, clinic philosophy, questions, an embedded WhatsApp assessment, and the conversion footer. This adopts the reference site's proof-to-decision sequence without copying its brand or unsupported claims.
 - Patient cases: four clinic-supplied cases sit in a two-column evidence gallery; supplied posters retain their comparison crop, new raw photographs are paired and labelled before/procedure day, and no later outcome is implied where none was supplied.
-- Conversion: every main CTA opens the same four-field WhatsApp request dialog; a labelled fixed dock keeps the primary action visible on phones.
+- Conversion: main CTAs open the same four-field WhatsApp request dialog, while the final assessment section embeds the complete form in the page; a labelled fixed dock keeps the primary action visible on phones.
 - Footer: the consultation CTA, three-step expectation setting, brand identity, and utility links form one asymmetrical closing composition.
 - Exception: the lead sits near the info hue, so it is limited to branded content and the single landing-page CTA; semantic information continues to use `--info`.
 - Exception: Oxford measures 57–58% neutral because real photography and clinic-supplied proof artwork contribute skin, room, and blue pixels; CSS surfaces still use only neutral, cyan, navy, and silver roles.

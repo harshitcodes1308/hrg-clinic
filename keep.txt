@@ -4,10 +4,10 @@
 # Process labels were rewritten in this pass because the user requested larger, more engaging consultation copy; their consultation, assessment, planning, and follow-up meanings remain intact.
 # Booking fields intentionally change from phone/date/time/message to age/location per the user's current request.
 HRG Hair Regrowth Clinic
-About
+Results
 Treatments
 Our approach
-Contact
+FAQs
 Confidence,
 restored naturally.
 Hair transplant consultation
@@ -18,6 +18,9 @@ Tell us what is changing
 Understand the pattern
 Build the right plan
 Stay supported
+Understanding treatment cost
+What the consultation should clarify
+Private WhatsApp assessment
 Patient cases
 Clinic-provided case 01
 Clinic-provided case 02
