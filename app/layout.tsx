@@ -6,9 +6,9 @@ import "@fontsource/bricolage-grotesque/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HRG Hair Regrowth Clinic | Personalised Hair Restoration",
+  title: "Hair Transplant Clinic in Delhi | HRG Hair Regrowth Clinic",
   description:
-    "A premium demonstration website for HRG Hair Regrowth Clinic, focused on thoughtful consultation and individual treatment planning.",
+    "HRG Hair Regrowth Clinic, Rohini Sector 8, Delhi – hair transplant, FUE, hairline design, PRP and hair regrowth treatments. Book your consultation on WhatsApp.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

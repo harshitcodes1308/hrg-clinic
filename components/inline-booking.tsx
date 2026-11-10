@@ -1,8 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, MessageCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { WhatsAppIcon } from "@/components/icons";
 import {
   bookingSchema,
   buildWhatsAppUrl,
@@ -18,7 +18,7 @@ const emptyValues: BookingData = {
   treatment: undefined as unknown as BookingData["treatment"],
 };
 
-export function InlineBooking() {
+export function InlineBooking({ id, title = "Get Free Hair Assessment" }: { id: string; title?: string }) {
   const {
     register,
     handleSubmit,
@@ -36,66 +36,48 @@ export function InlineBooking() {
   };
 
   return (
-    <section id="assessment-form" className="inline-booking section-pad" aria-labelledby="inline-booking-title">
-      <div className="inline-booking-intro">
-        <p className="section-index">Private WhatsApp assessment</p>
-        <h2 id="inline-booking-title">Start with four<br /><em>simple details.</em></h2>
-        <p>Tell HRG what you are looking for. The site prepares a message for you to review before anything is sent.</p>
-        <ul>
-          <li><Check aria-hidden="true" /> No medical history or photographs requested</li>
-          <li><Check aria-hidden="true" /> Your entries stay in this browser</li>
-          <li><Check aria-hidden="true" /> You choose whether to send the message</li>
-        </ul>
-      </div>
-
-      <form className="inline-booking-form" onSubmit={handleSubmit(submit)} noValidate>
-        <div className="form-grid">
-          <InlineField label="Full name" error={errors.fullName?.message}>
-            <input autoComplete="name" {...register("fullName")} aria-invalid={!!errors.fullName} />
-          </InlineField>
-          <InlineField label="Age" hint="In years" error={errors.age?.message}>
-            <input type="number" inputMode="numeric" min="1" max="120" {...register("age")} aria-invalid={!!errors.age} />
-          </InlineField>
-          <InlineField label="Location" hint="City or area" error={errors.location?.message} span>
-            <input autoComplete="address-level2" {...register("location")} aria-invalid={!!errors.location} />
-          </InlineField>
-          <InlineField label="Treatment interest" error={errors.treatment?.message} span>
-            <select defaultValue="" {...register("treatment")} aria-invalid={!!errors.treatment}>
-              <option value="" disabled>Select an option</option>
-              {treatmentOptions.map((option) => <option key={option}>{option}</option>)}
-            </select>
-          </InlineField>
+    <section id={id} className="section form-section" aria-labelledby={`${id}-title`}>
+      <div className="container">
+        <div className="form-card">
+          <p className="form-kicker">Book Your Consultation Today</p>
+          <h2 id={`${id}-title`}>{title}</h2>
+          <p className="form-lede">Start your journey towards a new you.</p>
+          <p className="form-script">New You, Through You</p>
+          <form onSubmit={handleSubmit(submit)} noValidate>
+            <div className="form-grid">
+              <Field label="Name" error={errors.fullName?.message}>
+                <input autoComplete="name" {...register("fullName")} aria-invalid={!!errors.fullName} />
+              </Field>
+              <Field label="Age" error={errors.age?.message}>
+                <input type="number" inputMode="numeric" min="1" max="120" {...register("age")} aria-invalid={!!errors.age} />
+              </Field>
+              <Field label="Location" error={errors.location?.message}>
+                <input autoComplete="address-level2" placeholder="City or area" {...register("location")} aria-invalid={!!errors.location} />
+              </Field>
+              <Field label="Treatment Interest" error={errors.treatment?.message}>
+                <select defaultValue="" {...register("treatment")} aria-invalid={!!errors.treatment}>
+                  <option value="" disabled>Select an option</option>
+                  {treatmentOptions.map((option) => <option key={option}>{option}</option>)}
+                </select>
+              </Field>
+            </div>
+            <button className="btn btn-block" type="submit" disabled={isSubmitting}>
+              <WhatsAppIcon /> {isSubmitting ? "Preparing message…" : "Get Assessment on WhatsApp"}
+            </button>
+            <p className="form-consent">By submitting, you agree to be contacted via call/WhatsApp by HRG Hair Regrowth Clinic.</p>
+          </form>
         </div>
-        <p className="consent-copy">These details only prepare your inquiry and are not stored by this website.</p>
-        <button className="button button-lead inline-submit" type="submit" disabled={isSubmitting}>
-          <MessageCircle aria-hidden="true" />
-          {isSubmitting ? "Preparing message…" : "Continue to WhatsApp"}
-        </button>
-      </form>
+      </div>
     </section>
   );
 }
 
-function InlineField({
-  label,
-  hint,
-  error,
-  span = false,
-  children,
-}: {
-  label: string;
-  hint?: string;
-  error?: string;
-  span?: boolean;
-  children: React.ReactNode;
-}) {
+function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
-    <label className={`field ${span ? "field-span" : ""}`}>
+    <label className="field">
       <span>{label}</span>
       {children}
-      <small className={error ? "field-error" : undefined} aria-live="polite">
-        {error ?? hint ?? "\u00A0"}
-      </small>
+      {error && <small className="field-error" aria-live="polite">{error}</small>}
     </label>
   );
 }

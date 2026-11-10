@@ -1,55 +1,69 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDownRight, ArrowRight, MessageCircle } from "lucide-react";
-import { motion } from "motion/react";
+import {
+  ArrowRight,
+  Award,
+  CalendarCheck,
+  ClipboardCheck,
+  HeartPulse,
+  LineChart,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Stethoscope,
+  UserRound,
+  Users,
+} from "lucide-react";
 import { useState } from "react";
+import { BaldnessChart } from "@/components/baldness-chart";
 import { BookingModal } from "@/components/booking-modal";
 import { CaseStudies } from "@/components/case-studies";
 import { Faq } from "@/components/faq";
 import { Header } from "@/components/header";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 import { InlineBooking } from "@/components/inline-booking";
+import { ResultSlider } from "@/components/result-slider";
+import { StatsBand } from "@/components/stats-band";
+import { TreatmentTabs } from "@/components/treatment-tabs";
+import { VideoStories } from "@/components/video-stories";
+import { WhatsAppPopup } from "@/components/whatsapp-popup";
+import { clinic, whatsAppLink } from "@/lib/site";
 
-const treatments = [
-  {
-    title: "Hair transplant consultation",
-    copy: "Discuss suitability, expectations, and questions before any recommendation.",
-  },
-  {
-    title: "Hair regrowth assessment",
-    copy: "Look more closely at the pattern and context of hair loss.",
-  },
-  {
-    title: "PRP treatment",
-    copy: "A provisional option that must follow an individual assessment.",
-  },
-  {
-    title: "Hairline restoration",
-    copy: "Consider hairline concerns, proportions, and appropriate possibilities.",
-  },
+const whyChoose = [
+  { icon: Stethoscope, title: "Clinic expertise", copy: "Our team has helped 5000+ happy patients regain their hair and confidence." },
+  { icon: ShieldCheck, title: "Comfortable Procedures", copy: "Advanced FUE technique under local anaesthesia for a comfortable experience." },
+  { icon: Sparkles, title: "Natural Results", copy: "Custom-designed hairlines that look natural and age-appropriate." },
+  { icon: Award, title: "HRG technique", copy: "Careful graft handling and placement for healthy growth and long-lasting results." },
 ];
 
-const steps = [
-  ["01", "Tell us what is changing", "Tell the team what you have noticed, what concerns you, and the outcome you hope to understand."],
-  ["02", "Understand the pattern", "Your hair pattern, scalp, donor area, goals, and relevant context shape the conversation."],
-  ["03", "Build the right plan", "Potential routes are explained with realistic expectations and the reasoning behind each one."],
-  ["04", "Prepare with clarity", "If you choose to proceed, you should understand preparation, recovery, aftercare, and who to contact."],
-  ["05", "Stay supported", "Progress is individual. Follow-up creates space to review recovery, questions, and the next appropriate step."],
-] as const;
+const services = [
+  { title: "Hair Transplant in Male", copy: "Restore your natural hairline with advanced techniques." },
+  { title: "Hair Transplant in Female", copy: "Customised solutions for female pattern hair loss." },
+  { title: "Hairline Reconstruction", copy: "Youthful, natural hairlines designed for your face." },
+  { title: "FUE Hair Transplant", copy: "Individual follicle extraction with quick recovery." },
+  { title: "PRP Therapy", copy: "Strengthen weak follicles and reduce hair fall." },
+  { title: "Hair Regrowth Treatment", copy: "Non-surgical plans for early thinning and hair fall." },
+];
 
-const costFactors = [
-  ["01", "Area and pattern", "The extent and pattern of hair loss influence what may be appropriate."],
-  ["02", "Donor availability", "The donor area and individual hair characteristics need careful assessment."],
-  ["03", "Treatment route", "Different non-surgical and procedural routes involve different plans."],
-  ["04", "Care and follow-up", "Preparation, aftercare, and any staged sessions should be part of the estimate."],
-] as const;
+const menPoints = [
+  "5000+ happy patients transformed",
+  "10+ years of expertise in hair restoration",
+  "Advanced FUE hair transplant technique",
+  "Custom hairline design for every face",
+  "Hygienic, fully equipped procedure room",
+  "Dedicated aftercare & follow-up support",
+];
 
-const consultationChecks = [
-  ["Pattern", "What the visible pattern may suggest and what still needs clinical review."],
-  ["Scalp and donor area", "The condition of the scalp and the hair available for a potential procedure."],
-  ["Goals", "The change you want, what may be realistic, and where expectations need alignment."],
-  ["Next steps", "Options, trade-offs, recovery, and the questions to answer before deciding."],
-] as const;
+const journey = [
+  { icon: Users, title: "Consultation", copy: "Personalised hair assessment & planning" },
+  { icon: ClipboardCheck, title: "Pre-procedure Prep", copy: "Safe, comfortable preparation for good results" },
+  { icon: HeartPulse, title: "HRG Procedure", copy: "Precise graft extraction and implantation" },
+  { icon: CalendarCheck, title: "Post-Op Care", copy: "Guided recovery with expert support" },
+  { icon: LineChart, title: "Progress Tracking", copy: "Regular follow-ups for natural growth" },
+];
 
 export function ClinicHomepage() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -60,228 +74,244 @@ export function ClinicHomepage() {
       <div id="top" className="page-shell">
         <Header onBook={openBooking} />
         <main>
+          {/* Hero */}
           <section className="hero" aria-labelledby="hero-title">
-            <motion.div
-              className="hero-copy"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.48, ease: "easeOut" }}
-            >
-              <h1 id="hero-title">Confidence,<br /><em>restored naturally.</em></h1>
-              <p>Personalised hair restoration, guided by thoughtful care and a commitment to natural-looking outcomes.</p>
-              <div className="hero-actions">
-                <button className="button button-lead" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Book on WhatsApp</button>
-                <a className="arrow-link" href="#approach">Explore our approach <ArrowDownRight aria-hidden="true" /></a>
+            <div className="container hero-grid">
+              <div className="hero-copy">
+                <h1 id="hero-title">Choose HRG for <span>Hair Transplant</span> in Delhi</h1>
+                <p>
+                  At HRG Hair Regrowth Clinic in Delhi, treatment plans are tailored to each person&apos;s hair condition, donor hair
+                  availability, and individual needs. The clinic focuses on hairline planning, appropriate surgical practices, hygiene,
+                  and transparent pricing. The medical team explains the procedure, expected outcomes and recovery process. Results may
+                  vary from person to person.
+                </p>
+                <button className="btn" type="button" onClick={openBooking}>Schedule Your Private Consultation <ArrowRight aria-hidden="true" /></button>
+                <ul className="hero-badges" aria-label="Clinic highlights">
+                  <li><strong>10+</strong><span>Years</span><small>Experience</small></li>
+                  <li><strong>5000+</strong><span>Happy</span><small>Patients</small></li>
+                  <li><strong>5<Star aria-hidden="true" /></strong><span>Rated</span><small>Clinic</small></li>
+                </ul>
               </div>
-              <div className="hero-assurance" aria-label="Consultation request details">
-                <span>Private inquiry</span>
-                <span>Review before sending</span>
-                <span>Clinic replies in WhatsApp</span>
+              <div className="hero-results">
+                <h2>Real Results From HRG Clinic</h2>
+                <ResultSlider />
+                <h3>Natural Results - Real Patient Case</h3>
+                <a className="btn" href={whatsAppLink("Hello HRG, I would like to send my photos for a hair analysis.")} target="_blank" rel="noopener noreferrer">
+                  Send Your Photos for Hair Analysis! <ArrowRight aria-hidden="true" />
+                </a>
               </div>
-            </motion.div>
-
-            <motion.div
-              className="hero-image-wrap"
-              initial={{ opacity: 0, x: 14 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.56, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/hrg-hero.png"
-                alt="A clinician thoughtfully assessing a client's hairline during a consultation"
-                fill
-                priority
-                sizes="(max-width: 800px) 100vw, 50vw"
-              />
-              <p className="image-note">Consultation-led care</p>
-            </motion.div>
+            </div>
           </section>
+
+          <VideoStories />
 
           <CaseStudies onBook={openBooking} />
 
-          <section id="about" className="brand-statement section-pad" aria-labelledby="about-title">
-            <div className="brand-copy">
-              <p className="section-index">Our point of view</p>
-              <h2 id="about-title">Hair restoration should feel <em>considered,</em> never rushed.</h2>
-              <p>Questions come first. Expectations stay honest. The person remains at the centre of every decision.</p>
-            </div>
-            <div className="brand-visuals">
-              <div className="brand-interior">
-                <Image src="/images/hrg-clinic-interior.png" alt="A quiet consultation room prepared for an individual assessment" fill sizes="(max-width: 760px) 100vw, 54vw" />
-              </div>
-              <div className="brand-patient">
-                <Image src="/images/hrg-woman-assessment.png" alt="A woman receiving a careful, non-invasive hair assessment" fill sizes="(max-width: 760px) 48vw, 24vw" />
-              </div>
-              <p>A space designed for unhurried conversations.</p>
+          {/* Cost */}
+          <section className="section" aria-labelledby="cost-title">
+            <div className="container center narrow">
+              <h2 id="cost-title" className="section-title">Hair Transplant Cost in Delhi at HRG Clinic</h2>
+              <p className="section-sub">
+                Hair transplant cost in Delhi depends on hair loss, the number of grafts required, and the recommended treatment approach.
+                Consult HRG Hair Regrowth Clinic to understand your options and estimated treatment cost.
+              </p>
+              <button className="btn" type="button" onClick={openBooking}>Know Your Hair Transplant Cost <ArrowRight aria-hidden="true" /></button>
             </div>
           </section>
 
-          <section className="cost-guide section-pad" aria-labelledby="cost-title">
-            <div className="cost-heading">
-              <p className="section-index">Understanding treatment cost</p>
-              <h2 id="cost-title">A useful estimate starts with <em>your assessment.</em></h2>
-              <p>There is no honest one-price answer without understanding the person and the plan. These are the main factors a consultation should clarify.</p>
-            </div>
-            <ol className="cost-grid">
-              {costFactors.map(([number, title, copy]) => (
-                <li key={number}>
-                  <span>{number}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="cost-action">
-              <p>Ask for a recommendation and estimate that explains what is included.</p>
-              <button className="button button-lead" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Request an assessment</button>
+          <InlineBooking id="assessment" />
+
+          <StatsBand />
+
+          {/* Highly rated */}
+          <section className="section" aria-labelledby="rated-title">
+            <div className="container center">
+              <h2 id="rated-title" className="section-title">Highly Rated Hair Transplant Clinic in Delhi</h2>
+              <p className="section-sub small">5000+ Happy Patients · 4.9★ Rated Clinic</p>
+              <div className="social-grid">
+                <a className="social-card" href={clinic.instagram} target="_blank" rel="noopener noreferrer">
+                  <span className="social-icon"><InstagramIcon /></span>
+                  <strong>Instagram</strong>
+                  <p>Watch patient results, procedure days and real stories from HRG.</p>
+                  <span className="social-link">Follow @hrg_hair_regrowth_clinic <ArrowRight aria-hidden="true" /></span>
+                </a>
+                <a className="social-card" href={clinic.facebook} target="_blank" rel="noopener noreferrer">
+                  <span className="social-icon"><FacebookIcon /></span>
+                  <strong>Facebook</strong>
+                  <p>See reviews, before &amp; after photos and clinic updates.</p>
+                  <span className="social-link">Visit our page <ArrowRight aria-hidden="true" /></span>
+                </a>
+                <a className="social-card" href={whatsAppLink()} target="_blank" rel="noopener noreferrer">
+                  <span className="social-icon"><WhatsAppIcon /></span>
+                  <strong>WhatsApp</strong>
+                  <p>Talk directly to our team and book your consultation in minutes.</p>
+                  <span className="social-link">Chat now <ArrowRight aria-hidden="true" /></span>
+                </a>
+              </div>
+              <button className="btn" type="button" onClick={openBooking}>Book Your Hair Consultation <ArrowRight aria-hidden="true" /></button>
+              <p className="slots-note">Limited Slots Available!</p>
             </div>
           </section>
 
-          <section id="treatments" className="treatments section-pad" aria-labelledby="treatments-title">
-            <div className="section-heading">
-              <h2 id="treatments-title">Possible paths,<br /><em>properly considered.</em></h2>
-              <div>
-                <p>These categories are provisional for the client demo. HRG’s clinical team must confirm the final treatment list and medically reviewed copy before launch.</p>
-                <span className="draft-marker">Demo content · confirmation required</span>
-              </div>
-            </div>
+          <TreatmentTabs />
 
-            <div className="treatment-editorial">
-              <div className="treatment-image">
-                <div className="treatment-image-frame">
-                  <Image
-                    src="/images/hrg-assessment.png"
-                    alt="A respectful close assessment of a client's hair and scalp"
-                    fill
-                    sizes="(max-width: 800px) 100vw, 45vw"
-                  />
-                </div>
-              </div>
-              <div className="treatment-list">
-                {treatments.map((treatment, index) => (
-                  <article key={treatment.title}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <div>
-                      <h3>{treatment.title}</h3>
-                      <p>{treatment.copy}</p>
-                    </div>
-                    <button className="treatment-discuss" type="button" onClick={openBooking} aria-label={`Discuss ${treatment.title}`}>Discuss <ArrowRight aria-hidden="true" /></button>
+          <BaldnessChart onBook={openBooking} />
+
+          {/* Why choose */}
+          <section className="section" aria-labelledby="why-title">
+            <div className="container center">
+              <h2 id="why-title" className="section-title">Why Choose Us?</h2>
+              <div className="feature-grid">
+                {whyChoose.map(({ icon: Icon, title, copy }) => (
+                  <article className="feature-card" key={title}>
+                    <Icon aria-hidden="true" />
+                    <h3>{title}</h3>
+                    <p>{copy}</p>
                   </article>
                 ))}
               </div>
+              <button className="btn" type="button" onClick={openBooking}>Book Your Hair Consultation Today! <ArrowRight aria-hidden="true" /></button>
             </div>
           </section>
 
-          <section className="assessment-story" aria-labelledby="assessment-title">
-            <div className="assessment-photo">
-              <Image src="/images/hrg-scalp-assessment.png" alt="A clinician documenting a non-invasive scalp assessment" fill sizes="(max-width: 760px) 100vw, 56vw" />
-            </div>
-            <div className="assessment-copy section-pad">
-              <p className="section-index">Assessment before recommendation</p>
-              <h2 id="assessment-title">Every good plan<br /><em>starts with detail.</em></h2>
-              <p>Your hair pattern, scalp health, goals, and questions all matter. The assessment turns those details into a conversation about options that may genuinely suit you.</p>
-              <a className="arrow-link" href="#approach">See how a consultation works <ArrowRight aria-hidden="true" /></a>
-            </div>
-          </section>
-
-          <section className="consultation-standard section-pad" aria-labelledby="consultation-standard-title">
-            <div className="consultation-standard-heading">
-              <p className="section-index">What the consultation should clarify</p>
-              <h2 id="consultation-standard-title">Know what is being considered, <em>and why.</em></h2>
-              <p>A strong consultation makes the reasoning visible. It should leave you better informed, even if the right next step is to wait or explore another route.</p>
-            </div>
-            <div className="consultation-checks">
-              {consultationChecks.map(([title, copy], index) => (
-                <article key={title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </article>
-              ))}
+          {/* Services */}
+          <section className="section" aria-labelledby="services-title">
+            <div className="container center">
+              <h2 id="services-title" className="section-title">Hair Transplant Services Tailored for You</h2>
+              <p className="section-sub">
+                From male &amp; female hair restoration to hairline design, PRP and regrowth treatments – HRG offers comfortable,
+                natural-looking solutions for every need.
+              </p>
+              <div className="service-grid">
+                {services.map((service) => (
+                  <article className="service-card" key={service.title}>
+                    <h3>{service.title}</h3>
+                    <p>{service.copy}</p>
+                  </article>
+                ))}
+              </div>
+              <button className="btn" type="button" onClick={openBooking}>Don&apos;t Wait, Start Your Hair Growth Journey Now! <ArrowRight aria-hidden="true" /></button>
             </div>
           </section>
 
-          <section id="approach" className="approach section-pad" aria-labelledby="approach-title">
-            <div className="approach-intro">
-              <h2 id="approach-title">From first concern<br /><em>to a clear next step.</em></h2>
-              <p>Each stage keeps the reasoning, options, and next step easy to understand.</p>
-            </div>
-            <ol className="steps">
-              {steps.map(([number, title, copy]) => (
-                <li key={number}>
-                  <span>{number}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section className="philosophy" aria-labelledby="philosophy-title">
-            <div className="philosophy-image">
-              <Image
-                src="/images/hrg-consultation.png"
-                alt="A clinician and client discussing a treatment plan together"
-                fill
-                sizes="(max-width: 800px) 100vw, 52vw"
-              />
-            </div>
-            <div className="philosophy-copy">
-              <p className="section-index">Clinic philosophy</p>
-              <h2 id="philosophy-title">Care is as much about <em>clarity</em> as treatment.</h2>
-              <p>Clear conversations should cover what may be suitable, what may not, and what a person can reasonably expect.</p>
-              <button className="arrow-link light-link" type="button" onClick={openBooking}>Start a conversation <ArrowRight aria-hidden="true" /></button>
+          {/* Men */}
+          <section className="section" aria-labelledby="men-title">
+            <div className="container split">
+              <div>
+                <h2 id="men-title" className="section-title left">Hair Transplant for Men – Regain Confidence, Restore Hairline</h2>
+                <p>
+                  With over <strong>5000 happy patients</strong>, HRG Hair Regrowth Clinic brings real expertise and results-driven care
+                  to every hair transplant. Our team uses the <strong>advanced FUE technique</strong> with careful hairline planning to
+                  deliver precise, natural results and healthy graft growth.
+                </p>
+                <h3 className="list-title">Why Choose HRG Hair Regrowth Clinic?</h3>
+                <ul className="check-list">
+                  {menPoints.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+                <p className="list-title">Ready to Regrow Your Hair?</p>
+                <button className="btn" type="button" onClick={openBooking}>Book Your Consultation</button>
+              </div>
+              <figure className="split-media">
+                <div className="split-image">
+                  <Image src="/images/hrg-case-study-01.png" alt="HRG male patient before and after hair transplant" fill sizes="(max-width: 900px) 92vw, 460px" />
+                </div>
+                <figcaption>Real HRG patient – natural look after hair transplant.</figcaption>
+              </figure>
             </div>
           </section>
 
-          <section className="faq section-pad" aria-labelledby="faq-title">
-            <div className="faq-heading">
-              <h2 id="faq-title">Good decisions begin with <em>good questions.</em></h2>
-              <p>General information only. A clinician should answer questions about individual suitability, risks, recovery, and outcomes.</p>
+          {/* Journey */}
+          <section className="section section-tint" aria-labelledby="journey-title">
+            <div className="container center">
+              <h2 id="journey-title" className="section-title">Your Hair Restoration Journey in 5 Easy Steps</h2>
+              <ol className="journey-grid">
+                {journey.map(({ icon: Icon, title, copy }) => (
+                  <li className="feature-card" key={title}>
+                    <Icon aria-hidden="true" />
+                    <h3>{title}</h3>
+                    <p>{copy}</p>
+                  </li>
+                ))}
+              </ol>
+              <button className="btn" type="button" onClick={openBooking}>Get Your Hair Back - Start Today <ArrowRight aria-hidden="true" /></button>
+              <p className="slots-note">Limited Slots for This Month!</p>
             </div>
-            <Faq />
           </section>
 
-          <InlineBooking />
+          {/* FAQ */}
+          <section id="faq" className="section section-tint section-flush" aria-labelledby="faq-title">
+            <div className="container center narrow">
+              <h2 id="faq-title" className="section-title">FAQs</h2>
+              <Faq />
+            </div>
+          </section>
 
+          <InlineBooking id="assessment-2" title="Get a Hair Assessment" />
+
+          {/* About */}
+          <section className="section" aria-labelledby="about-title">
+            <div className="container split about">
+              <figure className="split-media">
+                <div className="split-image">
+                  <Image src="/images/hrg-case-study-02.png" alt="HRG patient before and after hair transplant procedure" fill sizes="(max-width: 900px) 92vw, 460px" />
+                </div>
+                <button className="btn" type="button" onClick={openBooking}>Know Your Exact Hair Transplant Cost <ArrowRight aria-hidden="true" /></button>
+              </figure>
+              <div className="about-copy">
+                <h2 id="about-title" className="section-title left">Hair Transplant Clinic in Delhi – HRG</h2>
+                <p>
+                  At HRG Hair Regrowth Clinic, we are dedicated to treating hair loss with <strong>hair transplant treatment in Delhi</strong>.
+                  We specialise in FUE hair transplant, hairline design, PRP and hair regrowth therapies, supported by an in-house team of
+                  trained doctors and technicians.
+                </p>
+                <p>
+                  Located at {clinic.address}, our clinic is equipped with modern instruments and a hygienic procedure setup to deliver
+                  natural, long-lasting results. Whether you are searching for a <strong>hair transplant doctor</strong> or a trusted
+                  <strong> hair regrowth clinic in Delhi</strong>, HRG is your trusted choice.
+                </p>
+                <p>
+                  Our dedicated support team assists every patient throughout the journey, making sure they feel comfortable and cared for
+                  before, during and after the procedure. We uphold strict medical ethics, maintain confidentiality, and never publish any
+                  patient&apos;s image or video without consent.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="map-wrap" aria-label="HRG clinic location">
+            <iframe title="Map showing HRG Hair Regrowth Clinic, Rohini Sector 8, Delhi" src={clinic.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          </section>
         </main>
 
-        <footer id="contact" className="footer">
-          <div className="footer-conversation">
-            <div>
-              <p className="section-index">A simple first step</p>
-              <h2 id="cta-title">Begin with<br />a <em>conversation.</em></h2>
+        <footer className="footer">
+          <div className="container footer-inner">
+            <div className="footer-contact">
+              <a href={clinic.phoneHref}><Phone aria-hidden="true" /> {clinic.phoneDisplay}</a>
+              <span><MapPin aria-hidden="true" /> {clinic.address}</span>
             </div>
-            <div className="footer-action">
-              <p>Share four details, review the prepared inquiry, then choose whether to send it in WhatsApp.</p>
-              <button className="button button-light" type="button" onClick={openBooking}><MessageCircle aria-hidden="true" /> Book on WhatsApp</button>
+            <div className="footer-social">
+              <a href={clinic.facebook} target="_blank" rel="noopener noreferrer" aria-label="HRG on Facebook"><FacebookIcon /></a>
+              <a href={clinic.instagram} target="_blank" rel="noopener noreferrer" aria-label="HRG on Instagram"><InstagramIcon /></a>
+              <a href={whatsAppLink()} target="_blank" rel="noopener noreferrer" aria-label="HRG on WhatsApp"><WhatsAppIcon /></a>
             </div>
+            <p>© {new Date().getFullYear()} HRG Hair Regrowth Clinic. All Rights Reserved</p>
           </div>
-          <div className="footer-next" aria-label="What happens next">
-            <span>01 · Share your preferences</span>
-            <span>02 · Review the WhatsApp message</span>
-            <span>03 · HRG replies with availability</span>
-          </div>
-          <div className="footer-links">
-            <div className="footer-identity">
-              <a className="footer-logo" href="#top" aria-label="HRG Hair Regrowth Clinic, back to top">
-                <Image src="/images/hrg-logo-transparent.png" alt="" width={1448} height={1086} />
-              </a>
-              <p>Personalised hair restoration, guided by thoughtful care.</p>
-            </div>
-            <div><h3>Explore</h3><a href="#results-title">Patient cases</a><a href="#treatments">Treatments</a><a href="#approach">Our approach</a><a href="#faq-title">FAQs</a></div>
-            <div><h3>Contact</h3><button type="button" onClick={openBooking}>WhatsApp consultation</button><span>Phone pending</span><span>Location pending</span></div>
-            <div><h3>Information</h3><a href="#faq-title">FAQs</a><a href="#contact">Privacy notice pending</a><a href="#contact">Terms pending</a></div>
-          </div>
-          <div className="footer-bottom"><span>© {new Date().getFullYear()} HRG Hair Regrowth Clinic</span><span>Phase 1 client demonstration</span></div>
         </footer>
       </div>
 
-      <button className="whatsapp-dock" type="button" onClick={openBooking}>
-        <MessageCircle aria-hidden="true" />
-        <span>Book on WhatsApp</span>
+      {/* Floating actions */}
+      <a className="float-btn float-wa" href={whatsAppLink()} target="_blank" rel="noopener noreferrer" aria-label="Chat with HRG on WhatsApp">
+        <WhatsAppIcon />
+      </a>
+      <a className="float-btn float-call" href={clinic.phoneHref} aria-label={`Call HRG on ${clinic.phoneDisplay}`}>
+        <Phone aria-hidden="true" />
+      </a>
+      <button className="mobile-book-bar" type="button" onClick={openBooking}>
+        <UserRound aria-hidden="true" /> Book Your Consultation
       </button>
+
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <WhatsAppPopup suppressed={bookingOpen} />
     </>
   );
 }

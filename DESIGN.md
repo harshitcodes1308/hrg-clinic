@@ -20,3 +20,11 @@
 - Exception: the lead sits near the info hue, so it is limited to branded content and the single landing-page CTA; semantic information continues to use `--info`.
 - Exception: Oxford measures 57–58% neutral because real photography and clinic-supplied proof artwork contribute skin, room, and blue pixels; CSS surfaces still use only neutral, cyan, navy, and silver roles.
 - Exception: the full marketing page and booking dialog use ten measured font sizes across metadata, body, controls, and fluid display headings; each repeated role stays consistent and the larger process copy is intentionally distinct from metadata.
+
+## Nov 2026 restructure (supersedes the layout, radius and photography notes above)
+
+- Layout mirrors the qhtgurgaon.com landing page section-for-section (hero with result slider → patient videos → patient photos → cost → assessment form → stats band → social proof → treatment tabs → baldness chart → why choose us → services → men's section → 5 steps → FAQs → form → about → map → footer), in HRG navy/cyan instead of the reference's olive/orange.
+- Buttons and cards use an 8px radius with arrow CTAs, matching the reference.
+- No AI imagery is used on the page; all photos/videos are clinic-supplied (`public/images/hrg-case-*`, `public/videos/`).
+- A WhatsApp booking popup opens 5s after load, once per browser session (`components/whatsapp-popup.tsx`).
+- Headline numbers live in `lib/site.ts` (`stats`) and should be confirmed by the clinic.

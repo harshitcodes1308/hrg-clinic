@@ -146,7 +146,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
               )}
               <div className="form-actions">
                 <button className="text-button" type="button" onClick={onClose}>Cancel</button>
-                <button className="button" type="submit" disabled={isSubmitting}>
+                <button className="btn" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? "Preparing message…" : "Continue to WhatsApp"}
                 </button>
               </div>
