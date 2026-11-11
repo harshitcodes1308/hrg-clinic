@@ -5,7 +5,6 @@ import { useRef, useState } from "react";
 import { clinic } from "@/lib/site";
 
 const videos = [
-  { src: "/videos/hrg-patient-01.mp4", poster: "/videos/hrg-patient-01.jpg", title: "Patient Testimonial", caption: "Before & after hair transplant" },
   { src: "/videos/hrg-patient-02.mp4", poster: "/videos/hrg-patient-02.jpg", title: "Baldness to Full Hair", caption: "Hair transplant result" },
   { src: "/videos/hrg-patient-03.mp4", poster: "/videos/hrg-patient-03.jpg", title: "Patient Experience", caption: "In their own words" },
   { src: "/videos/hrg-patient-04.mp4", poster: "/videos/hrg-patient-04.jpg", title: "The Full Journey", caption: "Procedure day to result" },

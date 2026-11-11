@@ -78,7 +78,7 @@ export function ClinicHomepage() {
           <section className="hero" aria-labelledby="hero-title">
             <div className="container hero-grid">
               <div className="hero-copy">
-                <h1 id="hero-title">Choose HRG for <span>Hair Transplant</span> in Delhi</h1>
+                <h1 id="hero-title">Choose Hair Regrowth Clinic for <span>Hair Transplant</span> in Delhi</h1>
                 <p>
                   At HRG Hair Regrowth Clinic in Delhi, treatment plans are tailored to each person&apos;s hair condition, donor hair
                   availability, and individual needs. The clinic focuses on hairline planning, appropriate surgical practices, hygiene,
